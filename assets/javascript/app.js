@@ -1,24 +1,68 @@
+//when document is loaded, run function
+document.ready(function game(){
 
-//declare some global variables such as time remaining
+//run event that starts the game once start button is pressed
 
-//run run event that codes the game once start button is pressed
-$("#start").on("click", function(){
 
-var timeRemaining = 120
-var correctGuesses = 0
-var incorrectGuesses = 0
-//create a loop that will decrement the timeRemaining until it hits 0
-// add a timer using
+//declare some global variables such as time remaining, correct Guesses, and incorrect guesses
+var timeRemaining = 60;
+var correctGuesses = 0;
+var incorrectGuesses= 0;
 
-for(var i = 120 ; i < 120; i--){
+//create a boolean to use for when the gmae is running
+var gameRunning = false;
+
+
+
+//on click event to start the game
+$("#start-button").click(function(){
+    $("#start-button").hide();
+    var gameRunning = true;
     
+});
+
+//create an array of Answers, and an array of questions
+
+var answersArray ={};
+var questionsArray={};
+
+
+//create a timer  that will decrement the timeRemaining until it hits 0
+
+function Time(){
+    
+    timerCount = setInterval(timerDecrease, 1000);
 }
 
-// when timer hits 0 make an event that displays correctGuesses and incorrectGuesses 
-//create a functions that allows user to choose one choice per line
-//create booleans for the answers true or false
+    function timerDecrease(){
+             timeRemaining-- ;
+           $("#timer").html(timeRemaining);
+    
+           if(timeRemaining === 0){
+      gameRunning = false;
+       clearInterval(timerDecrease)
+      $("#timer").html(timeRemaining)
+      $("#instructions").html()
+      }
+    }
+  
+})
 
-// create a function tests to see if answer is true or not
+
+//create a function to call that will display both Incorrectguesses and correct guesses
+
+function gameEnd(){
+    $("#game-over").html("Thats All Folks You have " + correctGuesses + " Answers Correct. You have " + incorrectGuesses + " Answers Incorrect")
+}
+
+
+// when timer hits 0 make an event that displays both values for guesses
+
+  
+//create a functions that allows user to choose one choice froim the array
+
+//create an if scenario if answers are correct
+
+
 
 //append child to empty divs for instructions content, and for actual trivia questions
-})
