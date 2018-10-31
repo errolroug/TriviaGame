@@ -1,0 +1,9 @@
+h1{
+    text-align: center;
+}
+
+#start-button{
+    padding: 10%;
+    width: 50px;
+    background-color: red;
+}
